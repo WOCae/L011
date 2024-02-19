@@ -1,8 +1,8 @@
 extends Area2D
 
 @export var speed = 5
-@export var Shotcnt = 0.5
-@export var ShotSpeed = 1000
+@export var Shotcnt = 0.5 #射出間隔
+@export var ShotSpeed = 1000 #速度
 var cnt = 0
 const Ball = preload("res://ball.tscn") #ballシーンのプリロード
 
