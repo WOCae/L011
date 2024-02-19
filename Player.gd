@@ -1,7 +1,9 @@
 extends Area2D
 
 @export var speed = 5
-
+@export var Shotcnt = 0.5
+@export var ShotSpeed = 1000
+var cnt = 0
 const Ball = preload("res://ball.tscn") #ballシーンのプリロード
 
 #ウィンドウ範囲の指定
@@ -37,13 +39,17 @@ func _process(delta):
 	
 	#ballを作成する　スペースを押すとボールが作成されます。
 	if Input.is_action_pressed(("ui_select")):
-		# ball 
-		var Ball = Ball.instantiate()
-		Ball.position = position
+		cnt += delta
+		if cnt > Shotcnt:
+			cnt -= Shotcnt
 		
-		# ballの位置と速度
-		Ball.start(position.x, position.y, 100)
-		
-		#ルートにインスタンスを追加
-		var mainNode = get_owner()
-		mainNode.add_child(Ball)
+			# ball 
+			var Ball = Ball.instantiate()
+			Ball.position = position
+			
+			# ballの位置と速度
+			Ball.start(position.x, position.y, ShotSpeed)
+			
+			#ルートにインスタンスを追加
+			var mainNode = get_owner()
+			mainNode.add_child(Ball)
