@@ -6,6 +6,7 @@
 
 [node name="Player" type="Area2D"]
 script = ExtResource("1_vr1v1")
+Shotcnt = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_dfd58")
