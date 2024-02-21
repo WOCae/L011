@@ -6,11 +6,19 @@ extends Area2D
 var cnt = 0
 const Ball = preload("res://ball.tscn") #ballシーンのプリロード
 
+#棒を出現させる
+@export var Barcnt = 1 #射出間隔
+var cnt2 = 0
+const bar = preload("res://bar.tscn") #ballシーンのプリロード
+
 #ウィンドウ範囲の指定
 const Window_X = 32  
 const Window_Y = 32  
 const Window_W = 360 -32
 const Window_H = 720 -32 
+
+func _ready():
+	position = Vector2(180,400)
 
 func _process(delta):
 
@@ -53,3 +61,21 @@ func _process(delta):
 			#ルートにインスタンスを追加
 			var mainNode = get_owner()
 			mainNode.add_child(Ball)
+		cnt2 += delta
+		if cnt2 > Barcnt:
+			cnt2 -= Barcnt
+			# bar 
+			var bar = bar.instantiate()
+			bar.position.x = position.x+10
+			bar.position.y = position.y
+			
+			# ballの位置と速度
+			bar.start(position.x+10, position.y, ShotSpeed)
+			
+			#ルートにインスタンスを追加
+			var mainNode2 = get_owner()
+			mainNode2.add_child(bar)
+			
+			await get_tree().create_timer(0.5).timeout
+			bar.queue_free()
+		
