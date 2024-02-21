@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0hhnwb6irw72"]
+[gd_scene load_steps=4 format=3 uid="uid://b0hhnwb6irw72"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_vr1v1"]
+[ext_resource type="PackedScene" uid="uid://cbpvu4s5nm45m" path="res://bar_2.tscn" id="2_3cux1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dfd58"]
 
@@ -10,3 +11,5 @@ Shotcnt = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_dfd58")
+
+[node name="bar2" parent="." instance=ExtResource("2_3cux1")]
