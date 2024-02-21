@@ -7,7 +7,7 @@ var cnt = 0
 const Ball = preload("res://ball.tscn") #ballシーンのプリロード
 
 #棒を出現させる
-@export var Barcnt = 1 #射出間隔
+@export var Barcnt = 0.5 #射出間隔
 var cnt2 = 0
 const bar = preload("res://bar.tscn") #ballシーンのプリロード
 
@@ -25,13 +25,13 @@ func _process(delta):
 	var velocity = Vector2.ZERO
 	
 	if Input.is_action_pressed("ui_up"):
-		velocity.y -= 1 # moveup
+		velocity.y -= 1*delta # moveup
 	if Input.is_action_pressed("ui_down"):
-		velocity.y += 1 # movedown
+		velocity.y += 1*delta # movedown
 	if Input.is_action_pressed("ui_left"):
-		velocity.x -= 1 # moveleft
+		velocity.x -= 1*delta # moveleft
 	if Input.is_action_pressed("ui_right"):
-		velocity.x += 1 # moveright
+		velocity.x += 1*delta # moveright
 
 	position += velocity.normalized() * speed
 	
@@ -61,16 +61,18 @@ func _process(delta):
 			#ルートにインスタンスを追加
 			var mainNode = get_owner()
 			mainNode.add_child(Ball)
+			
+			
 		cnt2 += delta
 		if cnt2 > Barcnt:
 			cnt2 -= Barcnt
 			# bar 
 			var bar = bar.instantiate()
-			bar.position.x = position.x+10
+			bar.position.x = position.x
 			bar.position.y = position.y
 			
 			# ballの位置と速度
-			bar.start(position.x+10, position.y, ShotSpeed)
+			#bar.start(position.x+10, position.y, ShotSpeed)
 			
 			#ルートにインスタンスを追加
 			var mainNode2 = get_owner()
