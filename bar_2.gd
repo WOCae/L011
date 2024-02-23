@@ -1,3 +1,5 @@
+#もともと設定されている場合
+
 extends CharacterBody2D
 #extends Area2D
 #var velocity = Vector2()
