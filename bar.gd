@@ -11,7 +11,7 @@ func start(x, y, speed):
 
 func _ready():
 	$CollisionShape2D.position.x = 50
-	$CollisionShape2D.scale = Vector2(10, 1)
+	$CollisionShape2D.scale = Vector2(2, 1)
 
 var timecount = 0
 var maxcount = 10
