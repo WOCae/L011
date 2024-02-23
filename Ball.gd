@@ -4,7 +4,7 @@ var velocity = Vector2()
 
 const Window_X = 32  
 const Window_Y = 32  
-const Window_W = 360 -32
+const Window_W = 800 -32
 const Window_H = 720 -32 
 
 
@@ -29,7 +29,9 @@ func isInScreen(ball):
 	return true #in
 	
 
-func start(x, y, speed):
+func start(x, y, speed,r):
 	position = Vector2(x, y)
-	velocity.x = 0
-	velocity.y = -speed
+	velocity.x = speed*sin(r*3.14/180)
+	velocity.y = -speed*cos(r*3.14/180)
+	print(r)
+	print(sin(r),cos(r))
