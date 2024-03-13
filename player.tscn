@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0hhnwb6irw72"]
+[gd_scene load_steps=5 format=3 uid="uid://b0hhnwb6irw72"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_vr1v1"]
 [ext_resource type="PackedScene" uid="uid://cbpvu4s5nm45m" path="res://bar_2.tscn" id="2_3cux1"]
+[ext_resource type="Texture2D" uid="uid://cebkgf5c8gugv" path="res://dog2.png" id="3_av5de"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vgkwf"]
 
@@ -18,3 +19,8 @@ visible = false
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(-10, 11, 0, -16, 10, 9, -1, -41)
 closed = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_av5de")
+hframes = 7
+vframes = 2
