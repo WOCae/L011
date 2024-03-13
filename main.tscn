@@ -1,7 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcsy3vaust87v"]
+[gd_scene load_steps=6 format=3 uid="uid://bcsy3vaust87v"]
 
 [ext_resource type="PackedScene" uid="uid://b0hhnwb6irw72" path="res://player.tscn" id="1_5xkat"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xq676"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_py15a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2tk6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwpve"]
 
 [node name="main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_5xkat")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(20, 0)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_xq676")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(0, -20)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_py15a")
+debug_color = Color(0.937255, 0.121569, 0.552941, 0.419608)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(-20, 0)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_d2tk6")
+debug_color = Color(0, 0.639216, 0.376471, 0.419608)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(0, 20)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_wwpve")
+debug_color = Color(0.654902, 0.517647, 0, 0.419608)
